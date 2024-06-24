@@ -92,6 +92,8 @@ opt-level = 2
 # code and will fail the build in unwanted cases.
 cmake = { path = "build/rust/cmake" }
 vcpkg = { path = "build/rust/vcpkg" }
+pqc_kyber = { git="https://github.com/Argyle-Software/kyber/", rev="476e22c1a1ed579f3030e1ae46077036dc384d7f" }
+nss-gk-api = { git="https://github.com/mozilla/nss-gk-api", rev="bec1dd413b499a33ace5e61d3eaf701150b9d6ff" }
 
 # Helper crate for integration in the gecko build system.
 mozbuild = { path = "build/rust/mozbuild" }

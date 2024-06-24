@@ -5,7 +5,7 @@ edition = "2021"
 authors = ["Martin Sirringhaus", "John Schanck"]
 
 [dependencies]
-authenticator = { version = "0.4.0-alpha.15", features = ["gecko"] }
+authenticator = { git = "https://github.com/sandbox-quantum/authenticator-rs_fork.git", rev = "70bf457918213d17afbbeb0c5570a495bf41b5f2", features = ["gecko"] }
 log = "0.4"
 moz_task = { path = "../../../xpcom/rust/moz_task" }
 nserror = { path = "../../../xpcom/rust/nserror" }

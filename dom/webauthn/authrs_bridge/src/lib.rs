@@ -304,7 +304,7 @@ fn status_callback(
 ) {
     loop {
         match status_rx.recv() {
-            Ok(StatusUpdate::DeviceAvailable { dev_info }) => {
+            /*Ok(StatusUpdate::DeviceAvailable { dev_info }) => {
                 debug!("STATUS: device available: {}", dev_info)
             }
             Ok(StatusUpdate::DeviceUnavailable { dev_info }) => {
@@ -312,16 +312,16 @@ fn status_callback(
             }
             Ok(StatusUpdate::Success { dev_info }) => {
                 debug!("STATUS: success using device: {}", dev_info);
-            }
+            }*/
             Ok(StatusUpdate::SelectDeviceNotice) => {
                 debug!("STATUS: Please select a device by touching one of them.");
                 let notification_str =
                     make_prompt("select-device", tid, origin, browsing_context_id);
                 controller.send_prompt(tid, &notification_str);
             }
-            Ok(StatusUpdate::DeviceSelected(dev_info)) => {
+            /*Ok(StatusUpdate::DeviceSelected(dev_info)) => {
                 debug!("STATUS: Continuing with device: {}", dev_info);
-            }
+            }*/
             Ok(StatusUpdate::PresenceRequired) => {
                 debug!("STATUS: Waiting for user presence");
                 let notification_str = make_prompt("presence", tid, origin, browsing_context_id);
@@ -386,9 +386,9 @@ fn status_callback(
                 // These should never happen.
                 warn!("STATUS: Got unexpected StatusPinUv-error.");
             }
-            Ok(StatusUpdate::InteractiveManagement((_, dev_info, auth_info))) => {
+            Ok(StatusUpdate::InteractiveManagement((dev_info, auth_info))) => {
                 debug!(
-                    "STATUS: interactive management: {}, {:?}",
+                    "STATUS: interactive management: {:?}, {:?}",
                     dev_info, auth_info
                 );
             }
